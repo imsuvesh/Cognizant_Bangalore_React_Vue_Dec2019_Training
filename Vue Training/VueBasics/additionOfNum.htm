@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <style>
+        .Yellowish{
+            background-color: yellow;
+            height: 200px;
+            width: 200px;
+        }
+        .Greenish{
+            background-color: green;
+            height: 200px;
+            width: 200px;
+        }
+        
+        .Bodered{
+            border: 2px solid black;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <!-- Using refs -->
+        Enter first no.: <input type="number" ref="firstNum" /><br/>
+        Enter second no.: <input type="number" ref="secondNum"/><br/>
+        Total: {{total}}<button class="btn btn-success" @click='addNum'>Add</button><br>
+        <!-- or Using modeel  -->
+        Enter first no.: <input type="number" v-model.number="firstNumm" /><br/>
+        Enter second no.: <input type="number" v-model.number="secondNumm"/><br/>
+        Total: {{total}}<button class="btn btn-success" @click='addNumm'>Add</button><br>
+        <!-- Using computed property to see live result -->
+        <strong>Addition Result: {{addition}}</strong><br>
+        <strong>Substraction Result: {{substraction}}</strong> <br>
+        <!-- or using v-html-->
+        <strong v-html='addition'>Add:</strong><br>
+        <strong v-html='substraction'>Sub:</strong><br>
+        <hr>
+    Is green:? <input type="checkbox" v-model="isGreen"/> IsBordered <input type="checkbox" v-model='isBorderd'>
+    <div :class="['Yellowish',{'Bodered':isBorderd},{'Greenish':isGreen}]" @click="isGreen=!isGreen">
+        Toggle Class!
+    </div>
+    </div>
+    
+    <script>
+        //Vue Instance! (Represent your app)
+        var app = new Vue({
+          el:'#app',  //el:element that defines the scope of the vue
+          data:{
+              message:'Add two no.',
+              firstNumm:0,
+              secondNumm:0,
+              total:0,
+              isGreen:false,
+              isBorderd:false
+          },
+          methods:{
+            addNum:function(){
+                this.total= parseInt(this.$refs.firstNum.value)+parseInt(this.$refs.secondNum.value);
+            },
+            addNumm:function(){
+                this.total= this.firstNumm + this.secondNumm;
+            }
+          },
+          computed:{
+                addition:function(){
+                    return this.firstNumm + this.secondNumm;
+                },
+                substraction:function(){
+                    return this.firstNumm - this.secondNumm;
+                },
+                toggleClass:function(){
+                    return this.isGreen ? 'Greenish' : 'Yellowish'
+                }
+          }
+        });
+    </script>
+</body>
+</html>

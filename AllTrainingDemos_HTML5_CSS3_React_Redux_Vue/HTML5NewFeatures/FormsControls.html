@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Sign Up !</h1>
+    </div>
+    <form >
+            <label for="txtName">Name : </label>
+            <input type="text" id="txtName"
+            autofocus
+            placeholder="Enter Username.."
+            maxlength="10"
+            required
+            /> 
+            <br/>
+            <label for="txtPassword">Password : </label>
+            <input type="password" id="txtPassword"/> <br/>
+            <label for="txtEmail">Email : </label>
+            <input type="email" id="txtEmail" /><br/>
+            <label for="txtDate">DoB : </label>
+            <input type="date" id="txtDate" /><br/>
+            <label for="txtAge">Age : </label>
+            <input type="number" 
+            min="18" max="80" id="txtAge" /><br/>
+            <label for="txtColor">Fav Colour: </label>
+            <input type="color" id="txtColor"
+            onchange="txtName.style.backgroundColor=this.value"
+            /><br/>
+
+
+            <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+    // returns the first match !
+    // var usernameinput = document.querySelector("#txtName");
+    // console.log(usernameinput);
+    
+// returns all Elements with any css selector !
+        var allInputs = document.querySelectorAll("input");
+    // console.log(allInputs.length);
+    for(var i=0;i<allInputs.length;i++){
+        allInputs[i].style.backgroundColor = "lightgreen";
+    }
+    
+
+    </script>
+    
+</body>
+</html>

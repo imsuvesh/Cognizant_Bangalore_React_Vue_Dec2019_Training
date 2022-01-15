@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mycanvas">
+        Canvas not Supported!!
+    </canvas>
+
+    <script>
+    try {
+        var cnv = document.createElement('Canvas');
+    } catch (error) {
+        document.write('Canvas not Supported !');
+    }
+    var canvas =document.querySelector('#mycanvas');
+    var context = canvas.getContext('2d');
+    // context.moveTo(0,0);
+    // context.lineTo(100,100);
+    // context.strokeStyle = "blue";
+    // context.stroke(); 
+    context.beginPath();
+    context.translate(50,20); //Change the origin
+    context.lineTo(100,100);
+    context.lineTo(0,100);
+    context.lineTo(50,20);
+    context.closePath();
+    context.fillStyle = "yellow";
+    context.fill();
+    context.lineTo(50,20);
+    context.lineTo(0,100);
+    context.lineTo(100,100);
+    context.fillStyle = "yellow";
+    context.fill();
+    context.strokeStyle = "green";
+    context.stroke();
+    </script>
+</body>
+</html>

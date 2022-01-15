@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Document</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css">
+       
+</head>
+<body>
+    <div id="app">
+        <h2>Addition using Refs : </h2>
+       Enter First Number : <input type="number" v-model.number="numberOne"/><br/>
+       Enter First Number : <input type="number" v-model.number="numberTwo"   /><br/>
+      <input type="button" class="btn btn-primary" value="Add" @click="addnumbers" />
+      <strong> Result is: {{result}}</strong>
+
+    </div>
+    <script>
+        
+        var app = new Vue({
+            el:'#app',
+            data:{
+                numberOne:0,
+                numberTwo:0,
+               result:0
+            },
+            methods:{
+                addnumbers:function(){
+                    this.result = this.numberOne + this.numberTwo;
+                }
+            }
+        });   
+        
+        
+        </script>
+</body>
+</html>

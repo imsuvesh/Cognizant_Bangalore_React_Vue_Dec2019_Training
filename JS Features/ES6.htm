@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+       //Let Blockscoped variable
+       if(true){
+        var GlobadScoped = 11;
+        let blockScoped =10;   
+        if(true){
+            blockScoped =100; //Candefine values again but cannot define same vairable again if declared using let keyword
+            console.log(blockScoped);
+        }
+       }        
+       //console.log(blockScoped);
+       console.log(GlobadScoped);
+       const PI =3.14;
+       //PI=3.014; will not work
+
+       //3. Funtion Parameters
+    //    function PrintBooks(author,title){
+    //         // author = author || "Unknown";
+    //         // title = title || "Unknown";
+    //         // console.log(author,title);
+    //    } or we can use
+
+            //Default parameters
+        function PrintBooks (author = "Unknown", title = "Unknown"){
+            console.log(author,title);
+        }
+
+        PrintBooks();
+        PrintBooks("MS Dhoni","The Untold Story");
+
+        //RestParameters - It creates an array of the last element in the function thats'y its called rest parameter (the last parameter)
+        function PrintBook (author,...titles){
+            console.log(author,titles);
+        }
+
+        PrintBook("Dr. APJ Abdul Kalam","India 2020","Wings of Fire" );
+        PrintBook("Virat Kohli","Cover Drive");
+
+        //Operator
+        //Spread Operator with Arrays
+        var cars = ['BMW','Audi','Landrover'];
+        var moreCars = ['Hyundai','Maruti','Ford'];
+        var allCars = [...cars,...moreCars];
+        console.log(allCars);
+
+        //Speead Operator with Objects
+        var person  = {name: 'Sharukh',city:'Lonavala'};
+        var trainer = {...person,isMCT:true}
+        console.log(trainer);
+
+        //Destructuring with arrays
+        var firstCar,secondCar;
+        //[firstCar,secondCar] = cars; also can be done by
+        [firstCar,,secondCar] = ['BMW','Audi','Landrover'];
+        console.log(firstCar,secondCar);
+
+        //Destructuring with objects
+        var city,isMCT;
+        ({city,isMCT}=trainer);
+        console.log(city,isMCT);
+
+        //Normal function
+        function Square(x){
+            return x*x;
+        }
+        //Anonymous func 
+        // var Square = {
+        //     return function Square(x){
+        // }
+        // }
+        //Arrow Functions  -- Any anonymous function can be written using arrow functions
+        var Square = (x)=>{
+            return x*x;
+        }
+        // or var Square = x => x*x;
+
+        cars.forEach(function(car){  //Anonymous func
+            console.log(car);
+        })
+
+        //with arrow
+        cars.forEach(car=>console.log(car));
+
+        //Consructor func with ES5
+        function Emp(){
+            this.salary = 50000;
+            var self = this;
+            setTimeout(function(){
+                console.log(self.salary);//this works because self store the value also after the emp got executed 
+                console.log(this.salary);//this doesn't works because settimeout is async function and executes later(time) and emp got executed
+            },3000);
+        }
+
+        //Same example with arrow func - Context get binded at the creation of func not at the invoking time
+        function Emmp(){
+            this.ssalary = 50000;
+            setTimeout(()=>{
+                console.log(this.ssalary);
+            },3000);
+        }
+
+        var e =new Emp();
+        var em =new Emmp();
+
+
+
+        //Classes
+        class Car{
+            constructor(name="i20",speed=200){
+                this.name = name;
+                this.speed = speed;
+            }
+            accelerate(){
+                //console.log("the Car " + this.name + " is running at " + this.speed + "speed"); or 
+                console.log(`The Car ${this.name} is running at ${this.speed} kmph!.`);  //uSED Baptics (left of 1)
+            }
+        }
+
+        var cObj = new Car("Audi","light ");
+        console.log(cObj.name,cObj.speed);
+        cObj.accelerate();
+        //Multi Line Baptisc --retain line break
+        var multiLineStr = `First Line!
+        Second Line 
+        Third Line!`;
+        console.log(multiLineStr);
+
+        //Inheritance using class
+        class JamesBondCar extends Car{
+            constructor(name,speed,fly,nitro){
+                super();//Explicit Call !
+                this.canFly = fly;
+                this.UseNitro = nitro;
+            }
+            accelerate(){
+                return super.accelerate() + "Can it Fly?;" +this.canFly;
+            }
+        }
+
+        var jbc = new JamesBondCar('Aston Martin',500,true,true);
+        console.log(jbc.accelerate());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

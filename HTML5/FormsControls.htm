@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Sign UP!</h1>
+    </div>
+    <form >
+        <label for="txtName">Name :</label>
+        <input type="text" id="txtName" autofocus placeholder="Yourname..." maxlength="10" required /><br><br/>
+        <label for="email">Email :</label>
+        <input type="email" name="email" id="email" placeholder="@mail.com"/><br><br/>
+        <label for="pass">Password :</label>
+        <input type="password" name="password" id="pass" placeholder="sshhhhh!"/><br/><br/>
+        <label for="dob">DoB :</label>
+        <input type="date" name="dob" id="dob"><br><br/>
+        <label for="color">fav Color :</label>
+        <input type="color" name="color" id="color" onchange="txtName.style.backgroundColor=this.value"/><br/><br/>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+        var allinputs = document.querySelector("#txtName");
+        console.log(allinputs);
+
+        var username = document.querySelectorAll("input");
+        console.log(username.length);
+        username.style.backgroundColor= document.getElementsById("#color").value.onchange;
+        // for (let i = 0; i < username.length; i++) {
+        //     username[i].style.backgroundColor= document.getElementsByName("color").value;
+        // }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css">
+
+
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <img v-bind:src="imageUrl" height="200px" width="200px" />
+        <!-- <img :src="imageUrl" height="200px" width="200px" /> -->
+
+        <!-- Using Event Handling -->
+        <!-- Enter Message Here : <input type="text" 
+            v-bind:value="message"
+            v-on:input="changeMessageOnInput"
+            /> -->
+        <!-- Shorthand way - event -->
+        <!-- Enter Message Here : <input type="text" v-bind:value="message" @input="changeMessageOnInput" /> -->
+
+        <!-- Using v-model directive -->
+        Enter Message Here : <input type="text" v-model.lazy="message" />
+        <br/>
+        Count : {{count}} <br/>
+        Enter a number : <input type="number" v-model.number="count" />
+        <!-- <input type="text" 
+            :value="message" /> -->
+
+        <hr />
+        <h3> List Of Companies : </h3>
+        Enter Company Name : <input type="text" ref="txtCompanyName"  />
+         <button class="btn btn-success" @click="addNewCompany">
+            <span class="glyphicon glyphicon-plus-sign">
+            </span>
+        </button>
+        <ul>
+                <li v-for="company in companies">{{company}}</li>
+            </ul>
+        <!-- 
+            <template v-for="(company,index) in companies">
+                <p>
+                  {{index + 1}}.{{company}}
+                </p>
+            </template> -->
+
+        <!-- Array of objects -->
+<!-- 
+        <p v-for="company in arraysofobjects_companies">
+            {{company.name}} is IN {{company.city}}
+        </p>
+        <hr/>
+        <template v-for="company in arraysofobjects_companies">
+            <p v-for="(value,key) in company">
+                {{key}} - {{value}}
+            </p>
+        </template> -->
+    </div>
+    <script>
+        // Vue Instance ! (Represents ur app)
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue JS !',
+                count:10,
+                imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png',
+                companies: ["IBM", "MICROSOFT", "ACCENTURE", "COGNIZANT"],
+                arraysofobjects_companies: [
+                    { name: 'IBM', city: 'Pune' },
+                    { name: 'Microsoft', city: 'Hyderabad' },
+                    { name: 'ACCENTURE', city: 'Pune' },
+                    { name: 'COGNIZANT', city: 'Bangalore' }
+                ]
+            },
+            methods: {
+                changeMessageOnInput: function (e) {
+                    // change the model to change the view !
+                    this.message = e.target.value // ??how to get value from textbox ?
+                },
+                addNewCompany:function(){
+                    this.companies.push(this.$refs.txtCompanyName.value); // value from textbox !
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

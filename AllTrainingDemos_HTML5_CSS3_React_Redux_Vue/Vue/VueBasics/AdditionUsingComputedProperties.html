@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css">
+
+    <style>
+        .Yellowish {
+            background-color: lightyellow;
+            height: 100px;
+            width: 100px;
+        }
+
+        .Greenish {
+            background-color: lightgreen;
+            height: 100px;
+            width: 100px;
+        }
+
+
+        .Bordered {
+            border: 2px solid red;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body class="container">
+    <div id="app">
+        <h2>Addition using Refs : </h2>
+        Enter First Number : <input type="number" v-model.number="numberOne" /><br />
+        Enter First Number : <input type="number" v-model.number="numberTwo" /><br />
+        <!-- <input type="button" class="btn btn-primary" value="Add" @click="addnumbers" /> -->
+        <strong>Addition is: {{addition}}</strong> <br />
+        <strong>Difference is: {{difference}}</strong> <br />
+        <strong v-html="addition"></strong><br />
+        <strong v-html="difference"></strong><br />
+
+        <hr />
+        Is Green : ? <input type="checkbox" v-model="isGreen" />
+        Is Bordered : ? <input type="checkbox" v-model="isBordered" />
+        <!-- <div :class="toggleClass" @click="isGreen =!isGreen">
+                Toggle Class !
+        </div> -->
+
+        <div :class="['Yellowish',{'Bordered':isBordered},{'Greenish':isGreen}]" @click="isGreen =!isGreen">
+            Toggle Class !
+        </div>
+
+    </div>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                numberOne: 0,
+                numberTwo: 0,
+                isGreen: false,
+                isBordered: false
+            },
+            computed: {
+                addition: function () {
+                    return `<span style="color:red"> ${this.numberTwo + this.numberOne}  </span>`;
+                },
+                difference: function () {
+                    return this.numberTwo - this.numberOne;
+                },
+                toggleClass: function () {
+                    return this.isGreen ? 'Greenish' : 'Yellowish'
+                }
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

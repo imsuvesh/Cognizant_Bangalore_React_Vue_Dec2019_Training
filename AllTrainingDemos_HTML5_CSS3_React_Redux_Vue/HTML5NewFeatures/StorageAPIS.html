@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        function StoreData() {
+                var city = document.querySelector('#txtCity').value;
+                var state = document.querySelector('#txtState').value;
+                // store in local storage!
+
+                //window.localStorage[city] = state;// can also be JSON
+                //localStorage.setItem(city,state);
+                // localStorage.clear();// removes all items
+                // localStorage.removeItem(city); // deletes a specific item at a key
+               
+                // working with javascript object
+                var person = {name:'Sumeet',city:'Pune'};
+                localStorage["person"] = JSON.stringify(person);
+
+
+                // store in session storage!
+                // sessionStorage[city] = state;
+
+        }
+        function RetreiveData() {
+            var city = document.querySelector('#txtCity').value;
+            var paraOutput = document.querySelector('#output');
+            paraOutput.innerHTML = localStorage[city];
+            // paraOutput.innerHTML  localStorage.getItem(city);
+
+
+        }
+    </script>
+</head>
+
+<body>
+    Enter City : <input type="text" id="txtCity" /> <br />
+    Enter State : <input type="text" id="txtState" /> <br />
+    <input type="button" value="Store" onclick="StoreData()" />
+    <input type="button" value="Retreive" onclick="RetreiveData()" />
+    <p id="output">
+
+    </p>
+
+</body>
+
+</html>

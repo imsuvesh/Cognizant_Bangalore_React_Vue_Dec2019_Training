@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <title>Document</title>
+</head>
+
+<body>
+      <!-- 
+    <svg width="500" height="500">
+      <rect x="10" y="20" width="100"
+      height="100" 
+      fill="yellow"
+      stroke="blue"
+      ></rect>
+      <circle cx="100" cy="100" r="40"
+      stroke="green"      
+      stroke-width="8" fill="blue">
+
+      </circle>
+    </svg> -->
+
+
+      <svg width="500" height="500">
+            <defs>
+                  <g id="shapeGroup">
+                              <rect x="10" y="20" width="100"
+                              height="100" 
+                              fill="yellow"
+                              stroke="blue"
+                              ></rect>
+                              <circle cx="100" cy="100" r="40"
+                              stroke="green"      
+                              stroke-width="8" fill="blue">                        
+                              </circle>
+                  </g>
+            </defs>
+
+            <use href="#shapeGroup"></use>
+            <use href="#shapeGroup" transform="translate(60,200) scale(0.5)"></use>
+            <use href="#shapeGroup" transform="translate(20,300) scale(0.2)"></use>
+
+      </svg>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+</head>
+<body class="container">
+    <div id="app">
+        <course course-name="React"></course>
+        <course course-name="Vue"></course>
+        <course course-name="Node"></course>
+    </div>
+    <script>
+        Vue.component('course',{
+            // data(){
+            //     return  {
+            //         coursename:'Vue'
+            //         }
+            // },
+            props:{courseName:{
+                type:String,
+                required:false,
+                default:'Angular'
+            }},
+            template:`<h1> {{courseName}} </h1>`
+        })
+        var app = new Vue({
+            el:'#app'
+        });
+    </script>
+</body>
+</html>

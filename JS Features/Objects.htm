@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        //Literal Syntax
+        var company = {name:'Cognizant',city:'Bengaluru',getDetails:function(){console.log(this.name + " is in " + this.city)},
+        address:{
+            blockNo:'F3',
+            TrainingRoom:'Crystal',
+            Floor:'Ground'
+        },
+        locations:['Pune','Mumbai','Hyderabad']
+    };
+        company.noOfEmployees = 20000;//Dynamically Typed
+        company.getDetails();
+        var JSONData = JSON.stringify(company);//Sending data to server
+        var jsObject = JSON.parse(JSONData);//Gatting data from server
+
+        //2. Constructor Syntax
+        function Car(){
+            this.name = "i20";
+            this.speed = 200;
+            this.accelerate = function(){
+                console.log(' Dhoom Machale!!!');
+                console.log('The Car ' + this.name + " is running at " + this.speed + "KMPH!!");
+            }
+        }
+        // var carObj =new Car();
+        // console.log(carObj.name);
+        // carObj.accelerate();
+        function JamesBondCar(){
+            this.canFly = true;
+            this.useNitro =true;
+        }
+        JamesBondCar.prototype = new Car();
+        var jbc = new JamesBondCar();
+        jbc.accelerate();
+        //3. Closure Variables
+
+        function Outer(){
+            var x =10;
+            return function(){
+                console.log(++x);
+            }
+        }
+
+        var Inner = Outer(); //Outer is assigned to inner
+        Inner(); //calling
+
+    </script>
+</head>
+<body>
+    <input type="button" value="counter" onclick="Inner()"/>
+</body>
+</html>

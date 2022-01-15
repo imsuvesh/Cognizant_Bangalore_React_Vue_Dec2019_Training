@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <audio>
+        This is appearing because your browser doesn't support audio tag !
+    </audio> -->
+
+    <audio autoplay id="audioControl"  onpause="alert('Music Paused')" >
+        <source src="Aate Jaate.mp5" type="audio/mp5"/>
+        <source src="Aate Jaate.ogg" type="audio/ogg"/>
+        <source src="Aate Jaate.mp3" type="audio/mp3"/>
+    </audio>
+    <input type="button" value="Pause ||" onclick="audioControl.pause()" />
+    <input type="button" value="Play >" onclick="audioControl.play()" />
+
+</body>
+</html>

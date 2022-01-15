@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Document</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css">
+       
+</head>
+<body>
+    <div id="app">
+        <h2>Addition using Refs : </h2>
+       Enter First Number : <input type="text" ref="txtNumberOne" /><br/>
+       Enter First Number : <input type="text"  ref="txtNumberTwo" /><br/>
+      <input type="button" class="btn btn-primary" value="Add" @click="addnumbers" />
+      <strong> Result is: {{result}}</strong>
+
+    </div>
+    <script>
+        
+        var app = new Vue({
+            el:'#app',
+            data:{
+               result:0
+            },
+            methods:{
+                addnumbers:function(){
+                    this.result = parseInt(this.$refs.txtNumberOne.value) + parseInt(this.$refs.txtNumberTwo.value);
+                }
+            }
+        });   
+        
+        
+        </script>
+</body>
+</html>

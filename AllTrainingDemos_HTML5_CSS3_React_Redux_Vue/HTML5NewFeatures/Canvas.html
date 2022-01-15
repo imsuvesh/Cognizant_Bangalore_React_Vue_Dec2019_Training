@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+    canvas{
+        border:2px solid red;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas">
+        Canvas not supported !
+    </canvas>
+
+    <script>
+    // try{
+    //     var cnv = document.createElement('canvas');
+    // }catch(e){
+    //     document.write('Canvas not supported !');
+    // }
+
+    var canvas = document.querySelector('#myCanvas');
+    var context = canvas.getContext('2d');
+    // context.moveTo(0,0);
+    // context.lineTo(100,100);
+    // context.strokeStyle = "blue";
+    // context.stroke();
+
+    // context.beginPath();
+    // context.translate(20,20);// change the origin
+    // context.moveTo(0,0);
+    // context.lineTo(100,100);
+    // context.lineTo(50,20);
+    // context.lineTo(20,100);
+    // context.closePath();
+    // context.fillStyle = "yellow";
+    // context.fill();
+    // context.strokeStyle = "blue";
+    // context.stroke();
+
+    context.beginPath();
+         context.translate(150, 150);
+         context.moveTo(-25, -50);
+         context.lineTo(-10, -80);
+         context.lineTo(-20, -80);
+         context.lineTo(-5, -110);
+         context.lineTo(-15, -110);
+         context.lineTo(0, -140); // top of the tree
+         context.lineTo(15, -110);
+         context.lineTo(5, -110);
+         context.lineTo(20, -80);
+         context.lineTo(10, -80);
+         context.lineTo(25, -50);
+         context.closePath();
+         context.fillStyle = "green";
+         context.fill();
+         context.lineWidth = 4;
+         context.strokeStyle = "brown";
+         context.stroke();
+
+    </script>
+</body>
+</html>

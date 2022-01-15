@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+
+    
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <img v-bind:src="imageUrl" height="200px" width="200px" /> or <br><img :src="imageUrl" height="200px" width="200px" /><!--we can use : only instead of typing v-bind--><br> 
+        Enter message Here: <input type="text" v-bind:value="message" /> or <input type="text" :value="message" /><!--we can use : only instead of typing v-bind-->
+        <!-- Using event handling -->
+        Enter message Here: <input type="text" v-bind:value="message" v-on:input="changeMessageOutput"/>
+        <!-- Using v-model directive -->
+        Enter message Here: <input type="text"  v-model="message" />
+        <!-- Shorthand way - event -->
+        Enter message Here: <input type="text" v-bind:value="message" @input='changeMessageOutput'/>
+        Enter message Here: <input type="text"  v-model.lazy="message" /><br>
+        Count:{{count}} <input type="number" v-model.number="count"/>
+        <hr/>
+        <h3>List of Companies</h3>
+        <!-- <ul>
+            <li v-for="company in companies">{{comp}}</li>
+        </ul> -->
+        <template v-for="company in companies" ><p>{{company}}</p></template>
+        <template v-for="(company,index) in companies" ><p>{{index+1}}.{{company}}</p></template>
+        <p v-for="company in arrayofObjects_companies">{{company.name}}as IN {{company.city}}</p><hr/>
+        <template v-for="company in arrayofObjects_companies"><p v-for="(key,value) in company">{{key}}-{{value}}</p></template>
+        Enter company name: <input type="text" ref="txtCompanyName"/><button class="btn btn-success" @click='addNewCompany'>Add company</button>
+    </div>
+    <script>
+        //Vue Instance! (Represent your app)
+        var app = new Vue({
+          el:'#app',  //el:element that defines the scope of the vue
+          data:{
+              message:'Hello Vue JS!',
+              imageUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png',
+              companies:['IBM','Microsoft','Tcs','Cognizant'],
+              arrayofObjects_companies:[{name:"IBM",city:"BLR"},
+              {name:"CTS",city:"BLR"},
+              {name:"TCS",city:"BLR"},
+              {name:"INFY",city:"BLR"}
+              ]
+          },
+          methods:{
+              changeMessageOutput:function(e){
+                  this.message=e.target.value;
+              },
+              addNewCompany:function(){
+                  this.companies.push(this.$refs.txtCompanyName.value);//value
+              }
+          }
+        });
+    </script>
+</body>
+</html>

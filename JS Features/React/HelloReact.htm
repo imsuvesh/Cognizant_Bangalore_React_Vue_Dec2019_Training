@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+
+
+</head>
+<body>
+    <div id="target">
+
+    </div>
+    <script>
+        //createElement(element,attribute,children)
+        var h1Element = React.createElement('h1',{},"Hello React !");
+        var p_Element = React.createElement("p",{},"This is Para");
+        var divElement = React.createElement("div",{},[h1Element,p_Element]);
+        ReactDOM.render(divElement,document.querySelector('#target'));
+
+    </script>
+
+</body>
+</html>

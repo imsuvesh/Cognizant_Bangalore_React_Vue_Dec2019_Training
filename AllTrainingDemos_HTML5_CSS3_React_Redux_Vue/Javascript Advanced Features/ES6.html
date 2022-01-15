@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <script>
+  
+  if(true){
+      let blockScoped;
+      
+      blockScoped = 10;
+      // 100 lines code
+    //   let blockScoped = 10; // Error
+      if(true){
+       blockScoped = 100;
+        console.log(blockScoped);
+      }
+  }
+
+  const PI = 3.14;
+//   PI = 3.145;
+
+
+// Function parameters
+
+// Default Paramters
+// function PrintBooks(author="Unknown",title="Unknown"){
+    
+//     console.log(author,title);
+// }
+
+// PrintBooks();
+// PrintBooks("Sachin Tendulkar","Playing It My Way");
+
+// Rest Parameters
+function PrintBooks(author,...titles){    
+    console.log(author,titles);
+}
+
+PrintBooks("Dr. APJ Abdul Kalam","India 2020","Wings Of Fire");
+PrintBooks("Virat Kohli","Driven");
+
+// Operators
+// Spread Operator with Arrays
+var cars = ['BMW',"AUDI","FERRARI"];
+var moreCars = ["Maruti","Toyota","HYUNDAI"];
+var allCars = [...cars,...moreCars];    
+
+// Spread Operator with Object
+
+var person = {name:'Sumeet',city:'Pune'};
+var trainer = {...person,isMCT:true};
+
+// Destructuring with arrays
+var firstCar,secondCar;
+[firstCar,,secondCar] = ['BMW',"AUDI","FERRARI"];
+
+// Destructuring with object
+var city,isMCT;
+({city,isMCT}=trainer);
+
+
+
+// Function
+
+function Square(x){
+    return x * x;
+}
+
+/// Function as an expression
+var Square = function(x){
+    return x * x;
+}
+//Arrow functions
+var Square = (x)=>{
+    return x * x;
+}
+// OR
+
+var Square = x => x *x;
+
+cars.forEach(function(car){
+    console.log(car);
+})
+
+// with arrow
+
+cars.forEach(car=>console.log(car));
+
+// ES 5
+
+// function Emp(){
+//     this.salary = 50000;
+//     var self = this;
+//     setTimeout(function(){
+//         console.log(self.salary);
+//     },3000);
+// }
+
+
+function Emp(){
+    this.salary = 50000;  
+    setTimeout(()=>{
+        console.log(this.salary);
+    },3000);
+}
+var e = new Emp();
+
+// Classes
+class Car{
+    constructor(name="i20",speed=200){
+        this.name = name;
+        this.speed = speed;
+    }
+    accelerate(){
+       // console.log('The car ' + this.name + " is running at " + this.speed + " kmph !");
+       return (`The car ${this.name} is running at ${this.speed} kmph !`);
+    }
+}
+// var cObj = new Car("Audi",250);
+// cObj.accelerate();
+// var multiLineStr = `First Line !
+// Second Line
+// Last line !`;
+
+class JamesBondCar extends Car{
+    constructor(name,speed,fly,nitro){
+        super(name,speed); // explicit call !
+        this.canFly = fly;
+        this.useNitroPower = nitro;
+        
+    }
+    accelerate(){
+        return super.accelerate() + " , Can It Fly ? : " + this.canFly;
+    }
+}
+
+var jbc = new JamesBondCar("Aston Martin",500,true,true);
+console.log(jbc.accelerate())
+
+  </script>
+</head>
+<body>
+    
+</body>
+</html>

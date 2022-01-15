@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script>
+
+</head>
+<body>
+    <div id="target">
+
+    </div>
+    <script type="text/jsx">
+        //COMPONENT
+        //1. Creating a component definition
+        class BasicComponent extends React.Component{
+            render(){
+                return React.createElement('h1',{},"Hello React as Component !");
+            }
+        }
+        //2. Instanciating the component 
+        var compInstance = React.createElement(BasicComponent);
+        ReactDOM.render(compInstance,document.querySelector('#target'));
+
+    </script>
+
+</body>
+</html>

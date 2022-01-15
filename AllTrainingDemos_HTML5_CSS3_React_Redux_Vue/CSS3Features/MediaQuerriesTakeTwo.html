@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+ <meta name="viewport" content="width=device-width;initial scale=1.0" />
+    <style>
+        .row{
+            height:80%;
+        }
+       *{
+           box-sizing:border-box;
+       }
+       html,body{
+           height:100%;
+           width:100%;
+           font-family:Verdana Arial;
+       }
+       header{
+           background-color:orange;
+           color:#000000;
+           padding:15px;
+           text-align:center;
+
+       }
+       .menu ul{
+           padding:0px;
+           margin:0px;
+           list-style-type:none;
+       }
+
+       .menu li{
+           padding:10px;
+           margin-bottom:10px;
+           background-color:lightblue;
+           color:#000000;
+           box-shadow:0px 1px 3px rgba(0,0,0,0.15),0px 1px 2px rgba(0,0,0,0.25)
+       }
+
+       .menu li:hover{
+           background-color:blue;   
+       }
+
+       .mainSection{
+           background-color:yellow;
+           padding:15px;
+           color:#000000;
+           text-align:center;
+           font-size:14px;
+           height:inherit;
+       }
+
+       footer{
+             background-color:grey;
+           color:#FFFFFF;
+           padding:15px;
+           text-align:center;
+       }
+       [class*='col']{
+           float:left;
+           padding:15px;
+       }
+       .row:after{
+           content:"";
+           clear:both;
+           display:block;
+       }
+
+       article{
+           height:80%;
+       }
+       .col-1{           width:50%;       }
+        .col-2{           width:20%;       }
+       .col-3{           
+           width:80% ; 
+          height:90%;  
+
+       }
+
+           @media only screen and (max-width:768px){
+               [class*='col']{
+                   width:100%;
+               }     
+
+               header{
+                   display:none;
+               }
+                footer{
+                   display:none;
+               }
+                          
+        }         
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <h1> UI Responsiveness </h1>
+       
+    </header>
+    <div class="row">   
+   <nav>
+       <div class="col-2 menu">
+           <ul>
+               <li>Cricket</li>
+               <li>Football</li>
+               <li>Carrom</li>
+               <li>Chess</li>
+           </ul>
+       </div>
+   </nav>
+    <article class="col-3">
+        <section class="mainSection">
+            <h2> Champion's Trophy</h2>
+            <p> All teams gear up to win it !</p>
+        </section>
+    </article>
+    </div>
+    <footer>
+        <p> This is a responsive footer</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.6.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-alpha1/JSXTransformer.js"></script>
+
+</head>
+<body>
+    <div id="target">
+
+    </div>
+    <script type="text/jsx">
+        class Subject extends React.Component{
+            render(){
+                return <h3> {this.props.name}</h3>
+            }
+        }
+
+        var compInstance = <div> 
+            <Subject name ="Maths"/>
+            <Subject name ="Phy"/>
+            <Subject name ="Chem"/>
+            <Subject name ="Bio"/>
+            <Subject name ="Geo"/>
+            <Subject name ="Hist"/>
+            <Subject name ="CS"/>
+        </div>
+
+        ReactDOM.render(compInstance,document.querySelector('#target'));
+
+    </script>
+
+</body>
+</html>
